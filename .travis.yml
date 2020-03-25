@@ -8,5 +8,10 @@ before_install:
   - gcloud components update kubctl
   - gcloud auth activate-service-account --key-file service-account.json
   - gcloud config set project multi-k8s-272214
-  - gcloud condif set compute/zone europe-west1-b
+  - gcloud config set compute/zone europe-west1-b
   - gcloud container clusters get-credentials multi-cluster
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t gmahe/react-test -f .client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true gmahe/react-test npm run test
