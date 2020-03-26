@@ -11,7 +11,7 @@ docker push gmahe/multi-server:$SHA
 docker push gmahe/multi-worker:latest
 docker push gmahe/multi-worker:$SHA
 
-kubctl apply -f k8s
-kubctl set image deployments/server-deployment server=gmahe/multi-server:$SHA
-kubctl set image deployments/client-deployment client=gmahe/multi-client:$SHA
-kubctl set image deployments/worker-deployment worker=gmahe/multi-worker:$SHA
+kubectl apply -f k8s
+kubectl set image deployments/server-deployment server=gmahe/multi-server:$SHA
+kubectl set image deployments/client-deployment client=gmahe/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=gmahe/multi-worker:$SHA
