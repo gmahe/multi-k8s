@@ -1,6 +1,6 @@
-docker build -t gmahe/multi-client:latest gmahe/multi-client:$SHA -f ./client/Dockerfile.dev ./client
-docker build -t gmahe/multi-server:latest gmahe/multi-server:$SHA -f ./server/Dockerfile.dev ./server
-docker build -t gmahe/multi-worker:latest gmahe/multi-worker:$SHA -f ./worker/Dockerfile.dev ./worker
+docker build -t gmahe/multi-client:latest -t gmahe/multi-client:$SHA -f ./client/Dockerfile ./client
+docker build -t gmahe/multi-server:latest -t gmahe/multi-server:$SHA -f ./server/Dockerfile ./server
+docker build -t gmahe/multi-worker:latest -t gmahe/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
 docker push gmahe/multi-client:latest
 docker push gmahe/multi-client:$SHA
