@@ -12,6 +12,8 @@ docker push gmahe/multi-worker:latest
 docker push gmahe/multi-worker:$SHA
 
 kubectl apply -f k8s
+
+# Used to tell now we use this new version
 kubectl set image deployments/server-deployment server=gmahe/multi-server:$SHA
 kubectl set image deployments/client-deployment client=gmahe/multi-client:$SHA
 kubectl set image deployments/worker-deployment worker=gmahe/multi-worker:$SHA
